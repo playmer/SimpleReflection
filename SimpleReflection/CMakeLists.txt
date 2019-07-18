@@ -4,6 +4,11 @@ target_include_directories(SimpleReflection PUBLIC ${simpleReflectionDirectory})
 
 target_compile_features(SimpleReflection PUBLIC cxx_std_17)
 
+
+if (MSVC)
+    target_compile_options(SimpleReflection PUBLIC /wd5030)
+endif(MSVC)
+
 target_sources(SimpleReflection
 PRIVATE
     Any.hpp
