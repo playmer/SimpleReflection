@@ -12,10 +12,10 @@
 #include "SimpleReflection/ForwardDeclarations.hpp"
 #include "SimpleReflection/Reflection.hpp"
 
-//#include "SimpleReflection/TargetDefinitions.hpp"
-
 namespace srefl
 {
+  void InitializeReflection();
+
   class Base
   {
   public:
@@ -558,13 +558,12 @@ void Name::InitializeType()
   template<typename tType>
   inline void InitializeType()
   {
-    YTEMetaProfileFunction();
     TypeIdentification<tType>::InitializeType();
   }
 }
 
-#define sreflDeclareExternalType(Name)                       \
-namespace srefl                                              \
+#define sreflDeclareExternalType(Name)                     \
+namespace srefl                                            \
 {                                                          \
   template<>                                               \
   struct TypeIdentification<Name>                          \
@@ -578,7 +577,7 @@ namespace srefl                                              \
     {                                                      \
       Type::AddGlobalType(TypeId()->GetName(), TypeId());  \
     }                                                      \
-    static Type cType;                          \
+    static Type cType;                                     \
   };                                                       \
                                                            \
   template<>                                               \

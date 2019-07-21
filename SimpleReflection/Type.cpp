@@ -238,6 +238,30 @@ namespace srefl
     RegisterType<Field>();
     TypeBuilder<Field> builder;
   }
+
+  void InitializeReflection()
+  {
+    InitializeType<void>();
+    InitializeType<bool>();
+    InitializeType<srefl::s8>();
+    InitializeType<srefl::i8>();
+    InitializeType<srefl::i16>();
+    InitializeType<srefl::i32>();
+    InitializeType<srefl::i64>();
+    InitializeType<srefl::u8>();
+    InitializeType<srefl::u16>();
+    InitializeType<srefl::u32>();
+    InitializeType<srefl::u64>();
+    InitializeType<float>();
+    InitializeType<double>();
+    InitializeType<std::string>();
+    InitializeType<Attribute>();
+    InitializeType<Serializable>();
+    InitializeType<Field>();
+    InitializeType<Function>();
+    InitializeType<DocumentedObject>();
+    InitializeType<Type>();
+  }
 }
 
 
